@@ -1,0 +1,24 @@
+<ion-header id="header" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Projeto 1 - Mobile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Senhas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div id="container-alert">
+      <ion-button id="present-alert">Alerta</ion-button>
+      <ion-alert trigger="present-alert" header="Desenvolvimento Mobile" subHeader="Aluno:"
+        message="Samuel Jefferson - 01561580" [buttons]="alertButtons">
+      </ion-alert>
+    </div>
+  </ion-content>
+</ion-content>
