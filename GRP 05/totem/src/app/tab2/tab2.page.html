@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sistema para controle de atendimento
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sistema para controle de atendimento</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-label class="title">Relatório</ion-label>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>Senhas emitidas: {{senhasService.senhasTotal}}</ion-item>
+
+        <ion-item>Senhas Geral: {{senhasService.senhasArray['SG'].length}}</ion-item>
+
+        <ion-item>Senhas Prioritárias: {{senhasService.senhasArray['SP'].length}}</ion-item>
+
+        <ion-item>Senhas Exames: {{senhasService.senhasArray['SE'].length}}</ion-item>
+
+        <ion-item>Tempo Médio de Atendimento SG: {{senhasService.tempoMedioSGFormatado}} minutos</ion-item>
+
+        <ion-item>Tempo Médio de Atendimento SP: {{senhasService.tempoMedioSPFormatado}} minutos</ion-item>
+
+        <ion-item>Tempo Médio de Atendimento SE: {{senhasService.tempoMedioSEFormatado}} minutos</ion-item>
+
+        <ion-item>Senhas não-atendidas: {{senhasService.senhasNaoAntedidas}} </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
