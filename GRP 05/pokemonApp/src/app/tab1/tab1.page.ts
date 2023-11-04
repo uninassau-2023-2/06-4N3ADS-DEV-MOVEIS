@@ -18,18 +18,36 @@ export class Tab1Page {
     uf: ''
   };
 
+  pokemonItens: any = {
+    id: 0,
+    name: '',
+    abilities: 0,
+    weight: '',
+    height: '',
+    img: ''
+  };
+
   constructor(
     private pokeAPIService: PokeAPIService,
     private viaCEPService: ViaCEPService
     ) {}
 
-    buscarPokemon(){
-      this.viaCEPService.getViaCEPService(this.areaBuscarPokemon).subscribe((value) =>{
+    buscarPokemon() {
+      this.viaCEPService.getViaCEPService(this.areaBuscarPokemon).subscribe((value) => {
         this.areaBusca.logradouro = JSON.parse(JSON.stringify(value))['logradouro'];
         this.areaBusca.bairro = JSON.parse(JSON.stringify(value))['bairro'];
         this.areaBusca.localidade = JSON.parse(JSON.stringify(value))['localidade'];
         this.areaBusca.uf = JSON.parse(JSON.stringify(value))['uf'];
-        })
+      });
+      this.pokemonItens.id = Math.floor(Math.random() * 100);
+      this.pokeAPIService.getPokeAPIService(this.pokemonItens.id).subscribe((value) => {
+        this.pokemonItens.id = JSON.parse(JSON.stringify(value))['id'];
+        this.pokemonItens.name = JSON.parse(JSON.stringify(value))['name'];
+        this.pokemonItens.abilities = JSON.parse(JSON.stringify(value))['abilities'].length;
+        this.pokemonItens.weight = JSON.parse(JSON.stringify(value))['weight'];
+        this.pokemonItens.height = JSON.parse(JSON.stringify(value))['height'];
+        this.pokemonItens.img = JSON.parse(JSON.stringify(value))['sprites']['front_default'];
+      });
     }
     
 

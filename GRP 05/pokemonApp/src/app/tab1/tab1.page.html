@@ -35,3 +35,23 @@
     </ion-list>
   </ion-card-content>
 </ion-card>
+
+<ion-card *ngIf="this.pokemonItens.name">
+  <ion-card-header>
+    <ion-card-title>{{this.pokemonItens.name | uppercase}}</ion-card-title>
+    <ion-img src="{{this.pokemonItens.img}}" alt="{{this.pokemonItens.name ? 'A foto é do Pokémon ' + this.pokemonItens.name : ''}}"></ion-img>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Habilidades: {{this.pokemonItens.abilities}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Altura: {{this.pokemonItens.height}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Peso: {{this.pokemonItens.weight}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
