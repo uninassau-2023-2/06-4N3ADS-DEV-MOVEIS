@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Buscar Pokémon
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Buscar Pokemon</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>   
+      <ion-input
+        [(ngModel)] = "areaBuscarPokemon"
+        [counter] = "true"solta o 
+        fill="solid"
+        helperText="Área para buscar por Pokemon"
+        label-placement="floating"
+        label="CEP"
+        maxlength="8"
+        placeholder="22555888"
+        type="text">
+      </ion-input>
+      <ion-button expand="block" fill="solid" (click)="buscarPokemon()">
+        <ion-icon name="search" slot="end"></ion-icon>
+        Buscar por Pokemon
+      </ion-button>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+            {{
+              this.areaBusca.logradouro + 
+              this.areaBusca.bairro + 
+              this.areaBusca.localidade + 
+              this.areaBusca.uf
+            }}
+          </ion-item>
+      </ion-list>
+    </ion-card-content> 
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> {{this.pokemon.name | uppercase}}</ion-card-title>
+        <ion-img size="medium" alt="" 
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{this.pokemon.id}}.svg" >
+        </ion-img>    
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-list lines="inset">
+          <ion-item>
+            <ion-label>Id: {{this.pokemon.id}}</ion-label><br>
+          </ion-item>
+          <ion-item>
+            <ion-label>Name: {{this.pokemon.name}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Ability: {{this.pokemon.abilities.lenght}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Height: {{this.pokemon.height}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Weight: {{this.pokemon.weight}}</ion-label>
+          </ion-item>
+      </ion-list>
+    </ion-card-content> 
+  
+
+  
+</ion-card>
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+
+</ion-content>
