@@ -1,3 +1,3 @@
 # Alunos
 
-*Lucas Miguel 01560975
+* Lucas Miguel - 01560975
