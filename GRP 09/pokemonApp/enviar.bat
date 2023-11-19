@@ -8,3 +8,5 @@ git commit -m "Grupo 09"
 
 
 git push origin main
+
+pause
