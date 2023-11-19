@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Relatório
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Exames</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-label>Relatório:</ion-label>
+        <ion-list>Senhas Emitidas: {{senhasService.senhasTotal}}</ion-list>
+        <ion-list>Senhas Geral: {{senhasService.senhasGeral}}</ion-list>
+        <ion-list>Senhas Prioritárias: {{senhasService.senhasPrior}}</ion-list>
+        <ion-list>Senhas Exame: {{senhasService.senhasExame}}</ion-list>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
