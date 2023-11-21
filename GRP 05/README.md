@@ -6,3 +6,7 @@
 * Júlia Ellen - 01561550
 * Lucas Kaynnã  - 01561234
 * Wallace Martins - 01561145
+
+## 2023-11-21
+
+* Desenvolvido parcialmente até a lista 6
