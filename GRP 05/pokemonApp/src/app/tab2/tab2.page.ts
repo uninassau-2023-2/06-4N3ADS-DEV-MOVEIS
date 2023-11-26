@@ -43,6 +43,10 @@ export class Tab2Page implements OnInit {
     this.buscarNovoPokemon();
   }
 
+  ionViewDidEnter(){
+    this.buscarNovoPokemon();
+  }
+
   private buscarNovoPokemon() {
     this.pokemonItens.id = Math.floor(Math.random() * 100);
 
@@ -67,16 +71,24 @@ export class Tab2Page implements OnInit {
     this.ganhou = false;
     this.perdeu = false;
 
-    if (numeroHabilidadesTab1 === numeroHabilidadesTab2) {
-      this.empate = true;
-      this.resultadoBatalha = 'EMPATE';
-    } else if (numeroHabilidadesTab1 < numeroHabilidadesTab2) {
-      this.ganhou = true;
-      this.resultadoBatalha = 'GANHOU';
+    if (this.sharePokemonService.getPokemonList().length < 1) {
     } else {
-      this.perdeu = true;
-      this.resultadoBatalha = 'PERDEU';
+      const lastPokemon = this.sharePokemonService.getPokemonList()[this.sharePokemonService.getPokemonList().length - 1];
+    
+      if (numeroHabilidadesTab1 === numeroHabilidadesTab2) {
+        this.empate = true;
+        this.resultadoBatalha = 'EMPATE';
+        lastPokemon.empate++;
+      } else if (numeroHabilidadesTab1 < numeroHabilidadesTab2) {
+        this.ganhou = true;
+        this.resultadoBatalha = 'GANHOU';
+        lastPokemon.derrota++;
+      } else {
+        this.perdeu = true;
+        this.resultadoBatalha = 'PERDEU';
+        lastPokemon.vitoria++;
+      }
     }
-  }
+  }    
 
 }

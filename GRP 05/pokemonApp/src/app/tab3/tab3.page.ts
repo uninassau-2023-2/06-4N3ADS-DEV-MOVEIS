@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SharePokemonService } from '../services/share-pokemon.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  pokemonList: any;
 
+  constructor(private sharePokemonService: SharePokemonService) { }
+
+  ionViewDidEnter() {
+    this.pokemonList = this.sharePokemonService.getPokemonList();
+    console.log(this.pokemonList)
+  }
 }

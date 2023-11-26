@@ -5,6 +5,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharePokemonService {
+
+  private pokemons: any[] = [];
+
   private pokeAbilitiesSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor() {}
@@ -15,5 +18,13 @@ export class SharePokemonService {
 
   getAbilities(): Observable<number> {
     return this.pokeAbilitiesSubject.asObservable();
+  }
+
+  getPokemonList(): any[] {
+    return this.pokemons.slice();
+  }
+
+  addPokemon(pokemon: any) {
+    this.pokemons.push({...pokemon});
   }
 }
