@@ -6,14 +6,15 @@ import { SharePokemonService } from '../services/share-pokemon.service';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
 
-  pokemonList: any;
+  pokemonList!: any;
 
   constructor(private sharePokemonService: SharePokemonService) { }
-
-  ionViewDidEnter() {
+  
+  ngOnInit(): void {
     this.pokemonList = this.sharePokemonService.getPokemonList();
-    console.log(this.pokemonList)
   }
+
+  
 }

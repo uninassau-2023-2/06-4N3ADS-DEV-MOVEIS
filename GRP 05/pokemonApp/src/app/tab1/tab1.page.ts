@@ -26,10 +26,7 @@ export class Tab1Page implements OnInit {
     abilities: 0,
     weight: '',
     height: '',
-    img: '',
-    vitoria: 0,
-    empate: 0,
-    derrota: 0
+    img: ''
   };
 
   constructor(
@@ -59,7 +56,8 @@ export class Tab1Page implements OnInit {
       this.pokemonItens.height = JSON.parse(JSON.stringify(value))['height'];
       this.pokemonItens.img = JSON.parse(JSON.stringify(value))['sprites']['front_default'];
       this.sharePokemonService.setAbilities(this.pokemonItens.abilities);
-      this.sharePokemonService.addPokemon(this.pokemonItens);
+      this.sharePokemonService.addPokemonList(this.pokemonItens.name, this.pokemonItens.img, 0, 0, 0);
+
     });
 
   }

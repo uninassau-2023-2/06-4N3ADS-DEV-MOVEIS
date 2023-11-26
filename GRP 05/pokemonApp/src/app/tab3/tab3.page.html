@@ -17,7 +17,7 @@
     <ion-row>
       <ion-col size="6" *ngFor="let pokemon of pokemonList">
         <ion-card>
-          <ion-card-title class="nome">{{ pokemon.name | uppercase }}</ion-card-title>
+          <ion-card-title class="nome">{{ pokemon.nome | uppercase }}</ion-card-title>
           <ion-img src="{{pokemon.img}}"></ion-img>
           <ion-card-content>
             <ion-list>

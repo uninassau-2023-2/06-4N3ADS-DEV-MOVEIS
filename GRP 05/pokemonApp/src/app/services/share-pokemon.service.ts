@@ -8,6 +8,7 @@ export class SharePokemonService {
 
   private pokemons: any[] = [];
 
+
   private pokeAbilitiesSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor() {}
@@ -21,10 +22,12 @@ export class SharePokemonService {
   }
 
   getPokemonList(): any[] {
-    return this.pokemons.slice();
+    return this.pokemons;
   }
 
-  addPokemon(pokemon: any) {
-    this.pokemons.push({...pokemon});
+  addPokemonList(pokemonNome: string, img: string, vitoria: number = 0, empate: number = 0, derrota: number = 0) {
+    const newPokemon = { nome: pokemonNome, img, vitoria, empate, derrota };
+    this.pokemons.push({ ...newPokemon }); 
   }
+  
 }
