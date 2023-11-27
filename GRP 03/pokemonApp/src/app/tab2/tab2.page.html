@@ -1,3 +1,5 @@
+<!-- tab2.page.html -->
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -13,11 +15,12 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- Restante do seu código... -->
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title [style.color]="getComparisonColor(pokemon.comparisonResult)">{{ pokemon.name | uppercase
-        }}</ion-card-title>
+      <!-- Remova a referência a 'getComparisonColor' -->
+      <ion-card-title>{{ pokemon.name | uppercase }}</ion-card-title>
       <ion-label>{{ pokemon.comparisonResult | uppercase}}</ion-label>
       <ion-img [src]="pokemon.imageUrl" alt="Imagem do Pokémon"></ion-img>
     </ion-card-header>
@@ -37,7 +40,8 @@
   </ion-card>
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="addPhotoToGallery()">
+    <!-- Remova a referência a 'addPhotoToGallery' -->
+    <ion-fab-button>
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>

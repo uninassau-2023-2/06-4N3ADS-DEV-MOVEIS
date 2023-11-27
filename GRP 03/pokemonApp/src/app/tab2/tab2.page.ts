@@ -22,8 +22,7 @@ export class Tab2Page {
   constructor(
     private photoService: PhotoService,
     private pokeAPIService: PokeAPIService,
-    private httpClient: HttpClient,
-    private sharedService: SharedService
+    private sharedService: SharedService,
   ) { }
 
 
@@ -47,7 +46,7 @@ export class Tab2Page {
 
 
       // Compare com o Pokémon da Tab1 e defina a cor e o texto apropriados
-      const numberOfAbilitiesTab1 = this.sharedService.numberOfAbilitiesTab1; // Defina o valor correto
+      const numberOfAbilitiesTab1 = this.sharedService.numberOfAbilitiesTab1;
 
       if (this.pokemon.abilities === numberOfAbilitiesTab1) {
         this.pokemon.comparisonResult = 'Empate';
@@ -56,6 +55,12 @@ export class Tab2Page {
       } else {
         this.pokemon.comparisonResult = 'Perdeu';
       }
+
+      // Adicionar o Pokémon comparado à lista na SharedService
+      this.sharedService.addCapturedPokemon(this.pokemon);
+
+      // Notificar sobre a atualização de estatísticas
+      this.sharedService.notifyStatsUpdated();
     });
   }
 
@@ -64,15 +69,6 @@ export class Tab2Page {
   }
 
   getComparisonColor(result: string): string {
-    switch (result) {
-      case 'Empate':
-        return 'yellow';
-      case 'Ganhou':
-        return 'red';
-      case 'Perdeu':
-        return 'green';
-      default:
-        return 'black'; // Cor padrão
-    }
+    return this.sharedService.getComparisonColor(result);
   }
 }
