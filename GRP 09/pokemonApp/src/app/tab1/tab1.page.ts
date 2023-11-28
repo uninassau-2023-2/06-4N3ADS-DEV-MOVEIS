@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokeAPIService } from '../services/poke-api.service';
 import { ViaCEPService } from '../services/via-cep.service';
+import { BoxService } from '../services/box.service';
 
 @Component({
   selector: 'app-tab1',
@@ -8,7 +9,7 @@ import { ViaCEPService } from '../services/via-cep.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  areaBuscarPokemon: string = '52011210';
+  areaBuscarPokemon: string = '54160449';
   areaBusca: any = {
     bairro: '',
     localidade: '',
@@ -25,7 +26,8 @@ export class Tab1Page {
 
   constructor(
     private pokeAPIService: PokeAPIService,
-    private viaCEPService: ViaCEPService
+    private viaCEPService: ViaCEPService,
+    private box: BoxService
   ) {}
 
   buscarPokemon() {
@@ -35,8 +37,7 @@ export class Tab1Page {
         this.areaBusca.bairro = ', ' + JSON.parse(JSON.stringify(value))['bairro'];
         this.areaBusca.localidade = ' - ' + JSON.parse(JSON.stringify(value))['localidade'];
         this.areaBusca.uf = '-' + JSON.parse(JSON.stringify(value))['uf'];
-
-        console.log(this.areaBusca);
+        
       });
     
     this.pokeAPIService.getPokeAPIService()
@@ -47,7 +48,8 @@ export class Tab1Page {
         this.pokemon.name =  JSON.parse(JSON.stringify(value))['name'];
         this.pokemon.weight = JSON.parse(JSON.stringify(value))['weight'];
 
-        console.log(this.pokemon);
+        this.box.setDado(this.pokemon.abilities);
+        console.log(this.box.getDado());
       });
 
   }

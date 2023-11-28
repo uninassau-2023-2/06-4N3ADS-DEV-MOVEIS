@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BoxService } from '../services/box.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(
+    private box: BoxService
+  ) {}
+
+    
 
 }
