@@ -1,7 +1,7 @@
 # Alunos
 
 * Hester Keliana - 01561569
-* Vinícius
+* Vinicius da Costa Santana      - 01560941
 
 ## 2023-11-29
 
