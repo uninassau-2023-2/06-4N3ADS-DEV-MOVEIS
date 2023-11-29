@@ -56,6 +56,8 @@ export class Tab1Page implements OnInit {
       this.pokemonItens.height = JSON.parse(JSON.stringify(value))['height'];
       this.pokemonItens.img = JSON.parse(JSON.stringify(value))['sprites']['front_default'];
       this.sharePokemonService.setAbilities(this.pokemonItens.abilities);
+      this.sharePokemonService.addPokemonList(this.pokemonItens.name, this.pokemonItens.img, 0, 0, 0);
+
     });
 
   }

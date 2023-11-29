@@ -8,7 +8,8 @@ import { SharePokemonService } from '../services/share-pokemon.service';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit {
+
+export class Tab2Page{
 
   pokemonItens: any = {
     id: 0,
@@ -20,7 +21,6 @@ export class Tab2Page implements OnInit {
   };
 
   resultadoBatalha: string = '';
-
 
   empate: boolean = false;
   ganhou: boolean = false;
@@ -39,7 +39,7 @@ export class Tab2Page implements OnInit {
     return this.photoService.getPhotoPaths() || [];
   }
 
-  ngOnInit(): void {
+  ionViewDidEnter() {
     this.buscarNovoPokemon();
   }
 
@@ -55,28 +55,34 @@ export class Tab2Page implements OnInit {
         this.pokemonItens.height = JSON.parse(JSON.stringify(value))['height'];
         this.pokemonItens.img = JSON.parse(JSON.stringify(value))['sprites']['front_default'];
 
-        this.batalhar(numeroHabilidadesTab1);
       });
+      this.batalhar(numeroHabilidadesTab1);
     });
   }
 
   private batalhar(numeroHabilidadesTab1: number) {
     const numeroHabilidadesTab2 = this.pokemonItens.abilities;
-
+  
     this.empate = false;
     this.ganhou = false;
     this.perdeu = false;
-
+  
+    const lastPokemon = this.sharePokemonService.getPokemonList()[this.sharePokemonService.getPokemonList().length - 1];
+  
     if (numeroHabilidadesTab1 === numeroHabilidadesTab2) {
       this.empate = true;
       this.resultadoBatalha = 'EMPATE';
+      lastPokemon.empate++;
     } else if (numeroHabilidadesTab1 < numeroHabilidadesTab2) {
-      this.ganhou = true;
-      this.resultadoBatalha = 'GANHOU';
-    } else {
       this.perdeu = true;
       this.resultadoBatalha = 'PERDEU';
+      lastPokemon.derrota++;
+    } else {
+      this.ganhou = true;
+      this.resultadoBatalha = 'GANHOU';
+      lastPokemon.vitoria++;
     }
   }
+  
 
 }
