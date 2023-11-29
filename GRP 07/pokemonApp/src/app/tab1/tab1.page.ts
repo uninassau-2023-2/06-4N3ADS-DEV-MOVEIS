@@ -13,12 +13,11 @@ export class Tab1Page {
   areaBuscarPokemon: string = '52011210';
   areaBusca: any = {
     bairro: '',
-    localidade: '',
+    localidade: '', 
     logradouro: '',
     uf: ''
   };
 
-  // Adicione uma variável para armazenar o número de habilidades do Pokémon
   bulbasaurSkills: number = 5;
 
   constructor(
@@ -36,7 +35,7 @@ export class Tab1Page {
         this.areaBusca.uf = '-' + JSON.parse(JSON.stringify(value))['uf'];
 
         console.log('Bulbasaur Skills antes de navegar para tab2:', this.bulbasaurSkills);
-        // Navegue para a tab2 passando o número de habilidades do Bulbasaur
+      
         this.navCtrl.navigateForward('/tabs/tab2', {
           queryParams: {
             bulbasaurSkills: this.bulbasaurSkills

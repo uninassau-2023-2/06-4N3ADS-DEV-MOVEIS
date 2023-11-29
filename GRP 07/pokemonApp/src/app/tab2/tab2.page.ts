@@ -10,14 +10,14 @@ import { PhotoService } from '../services/photo.service';
 export class Tab2Page {
   
   pikachuSkills: number = 3;
-  result: string = ''; // Variável para armazenar o resultado da comparação
+  result: string = ''; 
 
   constructor(
     private route: ActivatedRoute,
     public photoService: PhotoService
   ) {}
 
-  // Este método é chamado quando a página é exibida
+  
   ionViewWillEnter() {
     this.route.queryParams.subscribe(params => {
       console.log('Raw Bulbasaur Skills:', params['bulbasaurSkills']);
@@ -26,8 +26,6 @@ export class Tab2Page {
     });
   }
   
-
-  // Função para realizar a comparação e definir o resultado
   compareSkills(bulbasaurSkills: number) {
     console.log('Pikachu Skills:', this.pikachuSkills);
     console.log('Bulbasaur Skills:', bulbasaurSkills);
@@ -43,7 +41,7 @@ export class Tab2Page {
     console.log('Result:', this.result);
   }
   
-  // Adicione uma foto à galeria
+  
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
   }
