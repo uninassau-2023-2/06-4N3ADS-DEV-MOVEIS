@@ -50,8 +50,20 @@ export class Tab1Page {
 
         this.box.setDado(this.pokemon.abilities);
         console.log(this.box.getDado());
-      });
+        this.enviarpokemon();
+      }); 
+  }
 
+  enviarpokemon(){
+    const novoPokemon = {
+      abilities: this.pokemon.abilities,
+      front_default: this.pokemon.front_default,
+      height: this.pokemon.height,
+      name: this.pokemon.name,
+      weight: this.pokemon.weight
+    };
+
+    this.box.addPokemon(novoPokemon);
   }
 
 }
