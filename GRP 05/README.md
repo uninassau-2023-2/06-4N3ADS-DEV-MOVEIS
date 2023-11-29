@@ -7,6 +7,11 @@
 * Lucas Kaynnã  - 01561234
 * Wallace Martins - 01561145
 
+## 2023-11-29
+
+* Desenvolvido até a lista 7
+* Tudo lindo!
+
 ## 2023-11-21
 
 * Desenvolvido parcialmente até a lista 6
