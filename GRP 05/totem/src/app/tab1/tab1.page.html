@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sistema para controle de atendimento
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sistema para controle de atendimento</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+    
+    <ion-card>
+      
+      <ion-card-header>
+        <ion-label class="title">Últimas senhas geradas</ion-label>
+
+        <ion-textarea readonly="true" [autoGrow]="true" label="Senhas SG:" [value]="senhasService.getUltimasSenhas().SG.join('\n')" style="color: #ffc409;"></ion-textarea>
+  
+        <ion-textarea readonly="true" [autoGrow]="true" label="Senhas SP:" [value]="senhasService.getUltimasSenhas().SP.join('\n')" style="color: #eb445a;"></ion-textarea>
+  
+        <ion-textarea readonly="true" [autoGrow]="true" label="Senhas SE:" [value]="senhasService.getUltimasSenhas().SE.join('\n')" style="color: #3880ff;"></ion-textarea>
+      </ion-card-header>
+
+      <ion-card-content style="display: flex; flex-direction: column; justify-content: center;">
+        <ion-button (click)="senhasService.novaSenha('SG')" size="large" color="warning">Senha Geral</ion-button>
+        <ion-button (click)="senhasService.novaSenha('SP')" size="large" color="danger">Senha Prioritária</ion-button>
+        <ion-button (click)="senhasService.novaSenha('SE')" size="large" color="primary">Senha Exame</ion-button>
+      </ion-card-content>
+      
+    </ion-card>
+    
+</ion-content>
